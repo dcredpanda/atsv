@@ -1,0 +1,56 @@
+table
+{
+  //border: 1px solid blue;
+  text-align: center;
+}
+
+td
+{
+  //border: 1px solid red;
+  text-align: center;
+  width: 200px;
+  height: 100px;
+}
+
+button
+{
+  width: 150px;
+  height: 60px;
+}
+
+input
+{
+	width: 90%;
+}
+
+select
+{
+	width: 90%;
+	height: 30px;
+}
+
+.inputRow td
+{
+	height: 75px;
+}
+
+.inputRow td button
+{
+	//height: 40px;
+}	
+
+.modal-header
+{
+	height: 50px;
+}
+
+.modal-title
+{
+	font-size
+}
+
+button.close
+{
+	height: 30px;
+	width: 75px;
+}

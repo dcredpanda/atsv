@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Main Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="Blayout.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<body>
+
+<!-- Button to Open the Modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#MainPage" data-backdrop="static" data-keyboard="false">
+  Open modal
+</button>
+
+<!-- MainPage -->
+<div class="modal" id="MainPage">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h5 class="modal-title">Main</h5>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <table align="center">
+		  <tr>
+			<td>
+			</td>
+			
+			<td>
+			
+			  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#LoginPage" data-backdrop="static" data-keyboard="false" data-dismiss="modal">
+			    Login
+			  </button>
+			</td>
+			
+			<td>
+			</td>
+			
+		  </tr>
+		  <tr>
+			<td>
+			</td>
+			
+			<td>
+			  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#CreateAcct" data-backdrop="static" data-keyboard="false" data-dismiss="modal">
+			    Create Account
+			  </button>
+			</td>
+			
+			<td>
+			</td>
+			
+		  </tr>
+		  
+		</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LoginPage -->
+<div class="modal" id="LoginPage">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+	<div class="modal-header">
+      <h5 class="modal-title">Login</h5>	  
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+    </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <table align="center">
+			<tr class="inputRow">
+			  <td> 
+				Username:
+			  </td>
+			  
+			  <td>
+				<input type="text" class="form-control" class="form-control" name="Username">
+			  </td>
+			  
+			  <td rowspan="2">
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AcctInfo" data-backdrop="static" data-keyboard="false" data-dismiss="modal">
+				  Go
+				</button>
+			  </td>
+			  
+			</tr>
+			<tr class="inputRow">
+			  <td> 
+				Password:
+			  </td>
+			  
+			  <td>
+				<input type="text" class="form-control" class="form-control" name="Password">
+			  </td>
+
+			</tr>
+			
+		</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CreateAcct -->
+<div class="modal" id="CreateAcct">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+	<div class="modal-header">
+      <h5 class="modal-title">Create Account</h5>	  
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+    </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <!--
+		<table id="MainTable" align="center">
+		  <tr><td>
+		  <table id="LeftPanel" align="center">
+			<tr class="inputTR">
+			  <td> Create Username:</td>
+			  <td><input type="text" class="form-control" name="Username"></td>
+			</tr>
+			<tr class="inputTR">
+			  <td> Create Password:</td>
+			  <td><input type="text" class="form-control" name="Password"></td>
+			</tr>
+			<tr class="inputTR">
+			  <td>
+			    Verify Password:
+			  </td>
+			  <td>
+			    <input type="text" class="form-control" name="Password">
+			  </td>
+			</tr>
+		  </table>
+		  </td>
+		  <td>
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AcctInfo" data-backdrop="static" data-keyboard="false" data-dismiss="modal">
+			  Go
+			</button>
+		  </td>
+		</table>
+		-->
+		
+		<table id="LeftPanel" align="center">
+			<tr class="inputTR">
+			  <td> Create Username:</td>
+			  <td><input type="text" class="form-control" name="Username"></td>
+			</tr>
+			<tr class="inputTR">
+			  <td> Create Password:</td>
+			  <td><input type="text" class="form-control" name="Password"></td>
+			</tr>
+			<tr class="inputTR">
+			  <td>
+			    Verify Password:
+			  </td>
+			  <td>
+			    <input type="text" class="form-control" name="Password">
+			  </td>
+			</tr>
+		  </table>
+		  </td>
+			<br>
+			<table align="center">
+			<td>
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AcctInfo" data-backdrop="static" data-keyboard="false" data-dismiss="modal">
+			  Go
+			</button>
+		    </td>
+			</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Search -->
+<div class="modal" id="Search">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+	<div class="modal-header">
+      <h5 class="modal-title">Search</h5>	  
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+    </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <table id="LeftPanel" align="center">    
+
+  <tr>
+    
+    <td>
+	  <button type="button" class="btn btn-primary" onclick="fAlert('Item added to favorites')">
+	    Favorite Item
+	  </button>
+	</td>
+	
+	<td>
+	</td>
+	
+	
+	
+  </tr>
+  
+  <tr>
+    
+
+	
+	<td colspan="3" align="centered">
+	 <h5>Predicted Price: $</h5><h5 id="PredPrice"></h5>
+	</td>
+
+
+	
+  </tr>
+  
+  <tr>
+    <td colspan="2"> 
+	  <input type="text" class="form-control" name="PricePaid" >
+	</td>
+    <td>
+	  <button type="button" class="btn btn-primary" onclick="fAlert('Price confirmed')">
+	    Confirm Paid Price
+	  </button>
+	</td>
+  </tr>
+  
+  <tr>
+    <td colspan="2"> 
+	  <input type="text" class="form-control" name="ItemDescr">
+	</td>
+    <td>
+	  <button type="button" class="btn btn-primary" onclick="fAlert('Description updated')">
+	    Confirm Description
+	  </button>
+	</td>
+  </tr>
+  
+  <tr>
+    
+	<td>
+	</td>
+	
+    <td>
+	  <button type="button" class="btn btn-primary" onclick="fAlert('Report submitted')">
+	    Report Incorrect Card Evaluation
+	  </button>
+	</td>
+	
+	<td>
+	</td>
+	
+  </tr>
+  
+  <tr>
+    <td colspan="2"> 
+	  <input type="text" class="form-control" name="SearchBar">
+	</td>
+    <td>
+	  <button type="button" class="btn btn-primary" onclick="fAlert('Price confirmed')">
+	    Confirm High
+	  </button>
+	</td>
+  </tr>
+  
+  <tr>
+    <td colspan="2"> 
+	  <input type="text" class="form-control" name="SearchBar">
+	</td>
+    <td>
+	  <button type="button" class="btn btn-primary" onclick="fAlert('Price confirmed')">
+	    Confirm Low
+	  </button>
+	</td>
+  </tr>
+  
+  <tr>
+    <td colspan="2"> 
+	  <input type="text" class="form-control" name="SearchBar">
+	</td>
+    <td>
+	  <button type="button" class="btn btn-primary" onclick="fAlert('Price confirmed')">
+	    Confirm Retail Price
+	  </button>
+	</td>
+  </tr>
+  
+  <tr>
+    
+	<td>
+	</td>
+	
+    <td>
+	  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AcctInfo" data-backdrop="static" data-keyboard="false" data-dismiss="modal">
+	    Return
+	  </button>
+	</td>
+	
+	<td>
+	</td>
+	
+  </tr>
+
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AcctInfo -->
+<div class="modal" id="AcctInfo">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+	<div class="modal-header">
+      <h5 class="modal-title">Account Information</h5>	  
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+    </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <table id="LeftPanel" align="center">    
+  <tr>
+    <td>
+	  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#EditAcct" data-backdrop="static" data-keyboard="false" data-dismiss="modal">
+	    Edit Account Information
+	  </button>
+    </td>
+  
+    <td>
+	
+    </td>
+  
+    <td>
+	  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AcctFav" data-backdrop="static" data-keyboard="false" data-dismiss="modal">
+  	    Access Favorites
+	  </button>
+    </td>
+  </tr>
+  
+  <tr class="inputRow">
+    <td colspan="2"> 
+	  <input type="text" class="form-control" name="SearchBar">
+	</td>
+    <td>
+	  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Search" data-backdrop="static" data-keyboard="false" data-dismiss="modal">
+	    Search
+	  </button>
+	</td>
+  </tr>
+  
+  <tr>
+    <td></td>
+  
+    <td>
+	  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#MngCred" data-backdrop="static" data-keyboard="false" data-dismiss="modal">
+	    Manage Credentials
+	  </button>
+    </td>
+	
+	<td></td>
+  </tr>
+  
+  <tr>
+    <td></td>
+  
+    <td>
+	  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#MainPage" data-backdrop="static" data-keyboard="false" data-dismiss="modal">
+	    Logout
+	  </button>
+    </td>
+    
+	<td></td>
+  </tr>
+
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EditAcct -->
+<div class="modal" id="EditAcct">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+	<div class="modal-header">
+      <h5 class="modal-title">Edit Account</h5>	  
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+    </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <table id="LeftPanel" align="center">
+    <tr>
+      <td>
+	    New Password:
+	  </td>
+	  
+      <td colspan="2">
+	    <input type="text" class="form-control" name="NewPass">
+	  </td>
+	  
+    </tr>
+	
+    <tr style="height: 100px;">
+      <td>
+	    Verify Password:
+	  </td>
+	  
+      <td colspan="2">
+	    <input type="text" class="form-control" name="VerPass">
+	  </td>
+	  
+    </tr>
+	
+	<tr>
+    <td>
+	  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AcctInfo" data-backdrop="static" data-keyboard="false" data-dismiss="modal">
+	    Return
+	  </button>
+	</td>
+  
+	<td>
+	  <button type="button" class="btn btn-primary" onclick="fAlert('Password changed')">
+	    Change Password
+	  </button>
+	</td>
+  
+    <td>
+	  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#MainPage" data-backdrop="static" data-keyboard="false" data-dismiss="modal">
+	    Delete Account
+	  </button>
+    </td>
+
+  </tr>
+	
+  </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MngCred -->
+<div class="modal" id="MngCred">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+	<div class="modal-header">
+      <h5 class="modal-title">Manage Credentials</h5>	  
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+    </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <table id="LeftPanel" align="center">    
+  <tr>
+    <td colspan="3">
+      <select align="center">
+	    <option value="Acct01"> Account 01 </option>
+		<option value="Acct02"> Account 02 </option>
+		<option value="Acct03"> Account 03 </option>
+		<option value="Acct04"> Account 04 </option>
+	  </select>
+    </td>
+    
+  </tr>
+  
+  <tr>
+    
+    <td>
+	  <button type="button" class="btn btn-primary" onclick="fAlert('Basic permissions set')">
+	    Set Basic
+	  </button>
+	</td>
+	
+	<td>
+	  <button type="button" class="btn btn-primary" onclick="fAlert('Expert permission set')">
+	    Set Expert
+	  </button>
+	</td>
+	
+	<td>
+	  <button type="button" class="btn btn-primary" onclick="fAlert('Admin permissions set')">
+	    Set Admin
+	  </button>
+	</td>
+	
+  </tr>
+  
+  <tr>
+    <td>
+	  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AcctInfo" data-backdrop="static" data-keyboard="false" data-dismiss="modal">
+	    Return
+	  </button>
+	</td>
+  
+	<td></td>
+  
+    <td>
+	  <button type="button" class="btn btn-primary" onclick="fAlert('Account removed')">
+	    Remove Account
+	  </button>
+    </td>
+	
+  </tr>
+
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Search -->
+<div class="modal" id="AcctFav">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+	<div class="modal-header">
+      <h5 class="modal-title">Favorites</h5>	  
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+    </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <table id="LeftPanel" align="center">    
+
+  <tr>
+  
+    <td colspan="3">
+      <select id="SelItem" align="center">
+	    <option value="Item01"> Item 01 </option>
+		<option value="Item02"> Item 02 </option>
+		<option value="Item03"> Item 03 </option>
+		<option value="Item04"> Item 04 </option>
+	  </select>
+    </td>
+    
+  </tr>
+  
+  <tr>
+    
+    <td>
+	  <button type="button" class="btn btn-primary"onclick="fAlert('Favorite removed')">
+	    Un-Favorite
+	  </button>
+	</td>
+	
+	<td>
+	</td>
+	
+	
+	
+  </tr>
+  
+  <tr class="inputRow">
+    <td colspan="2"> 
+	  <input type="text" class="form-control" name="SearchBar">
+	</td>
+    <td>
+	  <button type="button" class="btn btn-primary" onclick="fAlert('Price confirmed')">
+	    Confirm Paid Price
+	  </button>
+	</td>
+  </tr>
+  
+  <tr>
+    
+	<td>
+	</td>
+	
+    <td>
+	  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AcctInfo" data-backdrop="static" data-keyboard="false" data-dismiss="modal">
+	    Return
+	  </button>
+	</td>
+	
+	<td>
+	</td>
+	
+  </tr>
+
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+<script>
+function fAlert(msg)
+{
+  alert(msg);
+}
+</script>
+
+</html>
