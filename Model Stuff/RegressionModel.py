@@ -22,13 +22,16 @@ class RegressionModel:
 
 		np.random.shuffle(data)
 
-		x = data[...,3:9]
-		y = data[...,9:]
+		x = data[...,4:13]
+		y = data[...,13:]
 
 		x = np.insert(x,0,1,axis=1)
 		x = normalize(x)
 
 		return x,y
+
+	def change_model(self, modelName = 'lin'):
+		self.model = self.fit_model(self.x, self.y, modelName)
 
 	# Model names: Linear Regression: 'lin', Ridge Regression: 'ridge', Lasso Regression: 'lasso', Elastic Regression: 'elastic'
 	def fit_model(self, x, y, modelName = 'lin'):
@@ -56,8 +59,7 @@ class RegressionModel:
 
 	# Test Data
 	def test_data(self, x,y):
-		print('Actual: ' + str(y.T))
-		print('Linear: ' + str(self.model.predict(x)))
+		print('Score: '+ str(self.model.score(x,y)))
 
 	# Get card price prdiction
 	# name: player name : string
@@ -84,7 +86,7 @@ class RegressionModel:
 
 
 def parse_json(obj):
-	inputPtr = 'web_scraper/card_data_Ava.csv'
+	inputPtr = 'web_scraper/card_data_All_Mod.csv'
 	model = RegressionModel(inputPtr, 'ridge')
 
 	card = json.loads(obj)
@@ -103,18 +105,39 @@ def parse_json(obj):
 	return json.dumps(priceDict)
 
 
-# example on what to send
-testDict = {'name':'milan hejduk',
-			'team':'colorado avalanche',
-			'rook':0,
-			'mem':0,
-			'auto':0,
-			'ser':1
-			}
+def example():
+	# example on what to send
+	testDict = {'name':'milan hejduk',
+				'team':'colorado avalanche',
+				'rook':0,
+				'mem':0,
+				'auto':0,
+				'ser':1
+				}
 
-exampleJson = json.dumps(testDict)
+	exampleJson = json.dumps(testDict)
 
-# example on how to parse return
-price = parse_json(exampleJson)
-pricejson = json.loads(price)
-print(pricejson['price'])
+	# example on how to parse return
+	price = parse_json(exampleJson)
+	pricejson = json.loads(price)
+	print(pricejson['price'])
+
+
+inputPtr = 'web_scraper/card_data_All_Mod.csv'
+model = RegressionModel(inputPtr, 'lin')
+
+
+print('lin')
+model.test_data(model.x, model.y)
+
+model.change_model('ridge')
+print('ridge')
+model.test_data(model.x, model.y)
+
+model.change_model('lasso')
+print('lasso')
+model.test_data(model.x, model.y)
+
+model.change_model('elastic')
+print('elastic')
+model.test_data(model.x, model.y)
