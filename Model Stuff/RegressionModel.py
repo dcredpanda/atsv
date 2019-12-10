@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 
 import json
-import TrendScraper as ts
+import TrendScraper.py as ts
 
 class RegressionModel:
 	# Load features, labels into model

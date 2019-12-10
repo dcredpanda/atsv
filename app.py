@@ -6,19 +6,46 @@
 # 3. https://auth0.com/blog/using-python-flask-and-angular-to-build-modern-apps-part-1/
 
 
+import time
+import redis
 import os
 import json
 import datetime
-from bson.objectid import ObjectId
-from flask import Flask
+import bson
+from flask import Flask, jsonify
 from flask_pymongo import PyMongo
+
+app = Flask(__name__)
+cache = redis.Redis(host='redis', port=6379)
+
+
+def get_hit_count():
+    retries = 5
+    while True:
+        try:
+            return cache.incr('hits')
+        except redis.exceptions.ConnectionError as exc:
+            if retries == 0:
+                raise exc
+            retries -= 1
+            time.sleep(0.5)
+
+
+@app.route('/')
+def hello():
+    count = get_hit_count()
+    return 'Hello World! I have been seen {} times.\n'.format(count)
+
+@app.errorhandler(404)
+def err():
+    return jsonify({'error': 'Not found'})
 
 
 #@1 Encoder extends to support different objects, ObjectId & datetime below
 class JSONEncoder(json.JSONEncoder):
     ''' extend json-encoder class'''
     def default(self, o):
-        if isinstance(o, ObjectId):
+        if isinstance(o, bson.objectid.ObjectId):
             return str(o)
         if isinstance(o, datetime.datetime):
             return str(o)
@@ -35,13 +62,9 @@ mongo = PyMongo(app)
 #@1 attaches modified encoder
 app.json_encoder = JSONEncoder
 
-
-@app.route('/')
-def hello_world():
-    return 'Hello World!'
-
-
 if __name__ == '__main__':
     app.run()
 
-from app.controllers import *
+
+
+

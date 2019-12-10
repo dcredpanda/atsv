@@ -1,0 +1,5 @@
+flask
+redis
+bson
+flask_pymongo
+pymongo

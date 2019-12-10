@@ -116,6 +116,7 @@ def parse_price(price):
 
 	return valPrice
 
+
 	
 
 outFilePtr = 'card_data_Ava.csv'
