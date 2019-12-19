@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 
 import json
-import TrendScraper.py as ts
+#import TrendScraper.py as ts
 
 class RegressionModel:
 	# Load features, labels into model
@@ -22,8 +22,8 @@ class RegressionModel:
 
 		np.random.shuffle(data)
 
-		x = data[...,3:9]
-		y = data[...,9:]
+		x = data[...,3:7]
+		y = data[...,7:]
 
 		x = np.insert(x,0,1,axis=1)
 		x = normalize(x)
